@@ -1,4 +1,4 @@
-Paper Rock Scissors Lizard Spock in cSharp
+Paper Rock Scissors Lizard Spock in C#
 ===================================
 
 http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock
