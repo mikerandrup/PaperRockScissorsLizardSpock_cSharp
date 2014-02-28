@@ -1,5 +1,7 @@
-PaperRockScissorsLizardSpock_cSharp
+Paper Rock Scissors Lizard Spock in cSharp
 ===================================
+
+http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock
 
 C# Class (complete with overloaded comparison operators) for Paper Rock Scissors Lizard Spock
 
@@ -14,5 +16,5 @@ C# Class (complete with overloaded comparison operators) for Paper Rock Scissors
 * Spock vaporizes rock
 * Rock crushes scissors
 
+I created this as an excuse to implement operator overloads in C# for fun and practice.
 
-http://en.wikipedia.org/wiki/Rock-paper-scissors-lizard-Spock
