@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PaperRockScissorsLizardSpock.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="TesterConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
