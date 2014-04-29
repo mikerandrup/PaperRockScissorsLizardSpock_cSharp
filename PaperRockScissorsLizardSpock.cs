@@ -103,17 +103,7 @@
         }
         public override bool Equals(object otherObj)
         {
-            bool areEqual = false;
-
-            if (otherObj is PlayerMove)
-            {
-                PlayerMove otherPlayerMove = (PlayerMove)otherObj;
-                if (otherPlayerMove.ChosenMove == this.ChosenMove)
-                {
-                    areEqual = true;
-                }
-            }
-            return areEqual;
+            return this.GetHashCode() == otherObj.GetHashCode();
         }
     }
 
