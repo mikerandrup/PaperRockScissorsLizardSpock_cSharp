@@ -5,6 +5,54 @@ namespace PaperRockScissorsLizardSpock
 {
     class TesterConsole
     {
+        private static List<Tuple<Moves, Moves, CompareResult>> _cases;
+        private static List<Tuple<Moves, Moves, CompareResult>> TestCases
+        {
+            get
+            {
+                if (_cases == null)
+                {
+                    _cases = new List<Tuple<Moves, Moves, CompareResult>>();
+
+                    CompareResult win = CompareResult.GreaterThan;
+                    CompareResult tie = CompareResult.EqualTo;
+                    CompareResult lose = CompareResult.LessThan;
+
+                    // wins against
+                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Paper, win));
+                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Rock, win));
+                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Lizard, win));
+                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Spock, win));
+                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Scissors, win));
+                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Lizard, win));
+                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Paper, win));
+                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Spock, win));
+                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Rock, win));
+                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Scissors, win));
+
+                    // tie
+                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Paper, tie));
+                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Scissors, tie));
+                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Rock, tie));
+                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Lizard, tie));
+                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Spock, tie));
+
+                    // loses to
+                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Scissors, lose));
+                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Paper, lose));
+                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Rock, lose));
+                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Lizard, lose));
+                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Spock, lose));
+                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Scissors, lose));
+                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Lizard, lose));
+                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Paper, lose));
+                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Spock, lose));
+                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Rock, lose));
+                }
+                return _cases;
+            }
+        }
+        
         static void Main(string[] args)
         {
             PlayerMove PlayerOne, PlayerTwo;
@@ -75,53 +123,6 @@ namespace PaperRockScissorsLizardSpock
             EqualTo = 0,
             GreaterThan = 1,
             UtterAndTotalFailure = 666
-        }
-        private static List<Tuple<Moves, Moves, CompareResult>> _cases;
-        private static List<Tuple<Moves, Moves, CompareResult>> TestCases
-        {
-            get
-            {
-                if (_cases == null)
-                {
-                    _cases = new List<Tuple<Moves, Moves, CompareResult>>();
-
-                    CompareResult win = CompareResult.GreaterThan;
-                    CompareResult tie = CompareResult.EqualTo;
-                    CompareResult lose = CompareResult.LessThan;
-
-                    // wins against
-                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Paper, win));
-                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Rock, win));
-                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Lizard, win));
-                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Spock, win));
-                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Scissors, win));
-                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Lizard, win));
-                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Paper, win));
-                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Spock, win));
-                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Rock, win));
-                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Scissors, win));
-
-                    // tie
-                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Paper, tie));
-                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Scissors, tie));
-                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Rock, tie));
-                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Lizard, tie));
-                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Spock, tie));
-
-                    // loses to
-                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Scissors, lose));
-                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Paper, lose));
-                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Rock, lose));
-                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Lizard, lose));
-                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Spock, lose));
-                    _cases.Add(CaseBuilder(Moves.Lizard, Moves.Scissors, lose));
-                    _cases.Add(CaseBuilder(Moves.Paper, Moves.Lizard, lose));
-                    _cases.Add(CaseBuilder(Moves.Spock, Moves.Paper, lose));
-                    _cases.Add(CaseBuilder(Moves.Rock, Moves.Spock, lose));
-                    _cases.Add(CaseBuilder(Moves.Scissors, Moves.Rock, lose));
-                }
-                return _cases;
-            }
         }
 
         private static Tuple<Moves, Moves, CompareResult> CaseBuilder(Moves move1, Moves move2, CompareResult expectedResult)
